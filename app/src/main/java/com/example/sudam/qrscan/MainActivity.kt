@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                     //that means the encoded format not matches
                     //in this case you can display whatever data is available on the qrcode
                     //to a toast
-                    Toast.makeText(this, result.contents, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,resources.getString(R.string.invalid_qr_code), Toast.LENGTH_LONG).show()
                 }
 
             }

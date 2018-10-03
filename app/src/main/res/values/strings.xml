@@ -2,4 +2,5 @@
     <string name="app_name">QRScan</string>
     <string name="scanHint">Click on <u>SCAN QR CODE</u> button to scan QR code</string>
     <string name="gitHub">GitHub</string>
+    <string name="invalid_qr_code">invalid qr code please scan correct qr code.</string>
 </resources>
