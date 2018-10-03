@@ -20,7 +20,7 @@ class GitActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_git)
-
+        setTitle(resources.getString(R.string.gitHub))
 
         webview.setWebViewClient(myWebClient())
         webview.getSettings().setJavaScriptEnabled(true)
