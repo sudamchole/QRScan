@@ -7,16 +7,13 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_git.*
 import android.graphics.Bitmap
-
-
-
-
-
-
+import android.os.Handler
+import android.widget.Toast
 
 
 class GitActivity : AppCompatActivity() {
 
+    var doubleBackToExitPressedOnce = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_git)
@@ -46,11 +43,23 @@ class GitActivity : AppCompatActivity() {
 
     }
 
-}
-/*        webview!!.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                view?.loadUrl(url)
-                return true
+    @Override
+    override fun onBackPressed() {
+        val fm = supportFragmentManager
+        if (fm.backStackEntryCount == 0) {
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed()
+                return
             }
+
+            this.doubleBackToExitPressedOnce = true
+            Toast.makeText(this, "Press Back again to exit.", Toast.LENGTH_SHORT).show()
+
+            Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+        } else {
+            super.onBackPressed()
+            return
         }
-        webview!!.loadUrl(intent.getStringExtra("url"))*/
+    }
+
+}
