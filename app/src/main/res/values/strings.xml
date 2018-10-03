@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">QRScan</string>
     <string name="scanHint">Click on <u>SCAN QR CODE</u> button to scan QR code</string>
+    <string name="gitHub">GitHub</string>
 </resources>
