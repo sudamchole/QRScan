@@ -13,27 +13,31 @@ import org.json.JSONObject
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
 import android.content.Intent
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Handler
 
 
 class MainActivity : AppCompatActivity() {
     //View Objects
+    private lateinit var mp: MediaPlayer
     private var qrScan: IntentIntegrator? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         //intializing scan object
+        mp = MediaPlayer.create (this, R.raw.audio_assist)
         qrScan = IntentIntegrator(this);
 
         //View objects
 
         buttonScan.setOnClickListener(View.OnClickListener {
+            mp.stop()
             qrScan!!.initiateScan();
         })
         Handler().postDelayed({
-            //doSomethingHere()
+            mp.start ()
 
         }, 3000)
     }
