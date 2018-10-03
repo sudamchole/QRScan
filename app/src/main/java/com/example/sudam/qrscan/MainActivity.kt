@@ -48,8 +48,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Getting the scan results
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if(resultCode != RESULT_CANCELED){
         if (result != null) {
             //if qrcode has nothing in it
             if (result.contents == null) {
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-        } else {
+        }}else {
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
